@@ -46,7 +46,7 @@ const tiers = [
     price: "$0",
     period: "",
     highlighted: false,
-    cta: { label: "Get Started Free", href: "https://memory.buildd.dev" },
+    cta: { label: "Get Started Free", href: "#quickstart" },
     limits: [
       "1 workspace",
       "200 memories",
@@ -61,7 +61,7 @@ const tiers = [
     period: "/mo",
     badge: "Most Popular",
     highlighted: true,
-    cta: { label: "Get Started", href: "https://memory.buildd.dev" },
+    cta: { label: "Get Started", href: "#quickstart" },
     limits: [
       "3 workspaces",
       "5k memories",
@@ -75,7 +75,7 @@ const tiers = [
     price: "$49",
     period: "/mo",
     highlighted: false,
-    cta: { label: "Get Started", href: "https://memory.buildd.dev" },
+    cta: { label: "Get Started", href: "#quickstart" },
     limits: [
       "Unlimited workspaces",
       "50k memories",
@@ -97,7 +97,7 @@ const faqs = [
   },
   {
     q: "Can I self-host?",
-    a: "Yes. Memory is fully open source. Run it on your own infrastructure with your own Postgres database. The hosted version at memory.buildd.dev is the easiest way to get started.",
+    a: "Yes. Memory is fully open source. Run it on your own infrastructure with your own Postgres database. The hosted version is the easiest way to get started.",
   },
   {
     q: "Do I need a separate API key for the AI?",
@@ -209,9 +209,7 @@ export default function MemoryPage() {
           {/* CTAs */}
           <div className="flex flex-wrap justify-center gap-4 pt-2">
             <a
-              href="https://memory.buildd.dev"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#quickstart"
               className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-400 text-black font-semibold rounded-lg transition-colors"
             >
               Get Started Free
@@ -265,7 +263,7 @@ export default function MemoryPage() {
       </div>
 
       {/* Setup Code Block */}
-      <div className="max-w-4xl mx-auto px-6 pb-16">
+      <div id="quickstart" className="max-w-4xl mx-auto px-6 pb-16 scroll-mt-16">
         <h2 className="text-2xl font-bold text-center mb-6">
           3 lines to connect
         </h2>
@@ -519,9 +517,7 @@ export default function MemoryPage() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="https://memory.buildd.dev"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#quickstart"
             className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-400 text-black font-semibold rounded-lg transition-colors"
           >
             Get Started Free
