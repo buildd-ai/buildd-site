@@ -81,7 +81,7 @@ export default function OpenClawPage() {
 `Dashboard / API / MCP
         │
         ▼
-   POST /api/tasks ──► Pusher (local-ui workers)
+   POST /api/tasks ──► Pusher (runner workers)
         │
         ├──► POST /hooks/agent (OpenClaw webhook)
         │         │

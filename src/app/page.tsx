@@ -125,8 +125,8 @@ export default function LandingPage() {
       <div className="max-w-3xl mx-auto px-6 pb-16">
         <div className="rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
           <img
-            src="/local-ui.png"
-            alt="Buildd local UI showing an active worker executing a task with real-time progress"
+            src="/runner.png"
+            alt="Buildd runner showing an active worker executing a task with real-time progress"
             className="w-full h-auto"
           />
         </div>
