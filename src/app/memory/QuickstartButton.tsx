@@ -12,7 +12,7 @@ const API_BASE = 'https://memory.buildd.dev';
 
 export function QuickstartButton() {
   const [state, setState] = useState<QuickstartState>({ status: 'idle' });
-  const [copied, setCopied] = useState<'config' | 'invite' | 'cli' | null>(null);
+  const [copied, setCopied] = useState<'config' | 'http' | 'invite' | 'cli' | null>(null);
   const [joinTeam, setJoinTeam] = useState<string | null>(null);
 
   // Check for ?join=<teamId> in URL
@@ -134,6 +134,15 @@ export function QuickstartButton() {
 
   // Success
   const configJson = JSON.stringify(state.mcpConfig, null, 2);
+  const httpConfigJson = JSON.stringify({
+    mcpServers: {
+      memory: {
+        type: "url",
+        url: "https://memory.buildd.dev/api/mcp",
+        headers: { "x-api-key": state.key },
+      },
+    },
+  }, null, 2);
   const cliCommand = `claude mcp add memory --transport stdio --env BUILDD_MEMORY_API_KEY=${state.key} -- npx -y @buildd/memory-plugin`;
   const inviteUrl = state.teamId
     ? `https://buildd.dev/memory?join=${state.teamId}`
@@ -169,6 +178,7 @@ export function QuickstartButton() {
           <p className="text-gray-400 text-xs font-medium">
             Or paste into{' '}
             <code className="bg-white/10 px-1 py-0.5 rounded text-xs">.mcp.json</code>
+            {' '}(stdio)
           </p>
           <button
             onClick={() => handleCopy(configJson, 'config')}
@@ -180,6 +190,26 @@ export function QuickstartButton() {
         <div>
           <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
             <code>{configJson}</code>
+          </pre>
+        </div>
+      </div>
+
+      <div>
+        <div className="flex items-center justify-between mb-1.5">
+          <p className="text-gray-400 text-xs font-medium">
+            HTTP transport{' '}
+            <span className="text-gray-500">(no npx — works anywhere)</span>
+          </p>
+          <button
+            onClick={() => handleCopy(httpConfigJson, 'http')}
+            className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
+          >
+            {copied === 'http' ? 'Copied!' : 'Copy'}
+          </button>
+        </div>
+        <div>
+          <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
+            <code>{httpConfigJson}</code>
           </pre>
         </div>
       </div>
