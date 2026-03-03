@@ -13,6 +13,7 @@ const API_BASE = 'https://memory.buildd.dev';
 export function QuickstartButton() {
   const [state, setState] = useState<QuickstartState>({ status: 'idle' });
   const [copied, setCopied] = useState<'config' | 'http' | 'invite' | 'cli' | null>(null);
+  const [showAlt, setShowAlt] = useState(false);
   const [joinTeam, setJoinTeam] = useState<string | null>(null);
 
   // Check for ?join=<teamId> in URL
@@ -59,7 +60,7 @@ export function QuickstartButton() {
     }
   }
 
-  async function handleCopy(text: string, type: 'config' | 'invite' | 'cli') {
+  async function handleCopy(text: string, type: 'config' | 'http' | 'invite' | 'cli') {
     await navigator.clipboard.writeText(text);
     setCopied(type);
     setTimeout(() => setCopied(null), 2000);
@@ -158,47 +159,9 @@ export function QuickstartButton() {
 
       <div>
         <div className="flex items-center justify-between mb-1.5">
-          <p className="text-gray-400 text-xs font-medium">Claude Code (one-liner)</p>
-          <button
-            onClick={() => handleCopy(cliCommand, 'cli')}
-            className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
-          >
-            {copied === 'cli' ? 'Copied!' : 'Copy'}
-          </button>
-        </div>
-        <div>
-          <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
-            <code>{cliCommand}</code>
-          </pre>
-        </div>
-      </div>
-
-      <div>
-        <div className="flex items-center justify-between mb-1.5">
           <p className="text-gray-400 text-xs font-medium">
-            Or paste into{' '}
+            Paste into{' '}
             <code className="bg-white/10 px-1 py-0.5 rounded text-xs">.mcp.json</code>
-            {' '}(stdio)
-          </p>
-          <button
-            onClick={() => handleCopy(configJson, 'config')}
-            className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
-          >
-            {copied === 'config' ? 'Copied!' : 'Copy'}
-          </button>
-        </div>
-        <div>
-          <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
-            <code>{configJson}</code>
-          </pre>
-        </div>
-      </div>
-
-      <div>
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-gray-400 text-xs font-medium">
-            HTTP transport{' '}
-            <span className="text-gray-500">(no npx — works anywhere)</span>
           </p>
           <button
             onClick={() => handleCopy(httpConfigJson, 'http')}
@@ -212,6 +175,65 @@ export function QuickstartButton() {
             <code>{httpConfigJson}</code>
           </pre>
         </div>
+      </div>
+
+      <div>
+        <button
+          onClick={() => setShowAlt(!showAlt)}
+          className="text-gray-500 hover:text-gray-400 text-xs transition-colors flex items-center gap-1"
+        >
+          <svg
+            className={`w-3 h-3 transition-transform ${showAlt ? 'rotate-90' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+          Other setup methods
+        </button>
+
+        {showAlt && (
+          <div className="mt-2 space-y-3">
+            <div>
+              <div className="flex items-center justify-between mb-1.5">
+                <p className="text-gray-400 text-xs font-medium">Claude Code (one-liner)</p>
+                <button
+                  onClick={() => handleCopy(cliCommand, 'cli')}
+                  className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
+                >
+                  {copied === 'cli' ? 'Copied!' : 'Copy'}
+                </button>
+              </div>
+              <div>
+                <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
+                  <code>{cliCommand}</code>
+                </pre>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between mb-1.5">
+                <p className="text-gray-400 text-xs font-medium">
+                  <code className="bg-white/10 px-1 py-0.5 rounded text-xs">.mcp.json</code>
+                  {' '}(stdio)
+                </p>
+                <button
+                  onClick={() => handleCopy(configJson, 'config')}
+                  className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
+                >
+                  {copied === 'config' ? 'Copied!' : 'Copy'}
+                </button>
+              </div>
+              <div>
+                <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
+                  <code>{configJson}</code>
+                </pre>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {inviteUrl && (
