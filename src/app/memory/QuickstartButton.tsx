@@ -148,35 +148,39 @@ export function QuickstartButton() {
       </div>
 
       <div>
-        <p className="text-gray-400 text-xs font-medium mb-1.5">Claude Code (one-liner)</p>
-        <div className="relative">
-          <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 pr-16 border border-white/10 overflow-x-auto">
-            <code>{cliCommand}</code>
-          </pre>
+        <div className="flex items-center justify-between mb-1.5">
+          <p className="text-gray-400 text-xs font-medium">Claude Code (one-liner)</p>
           <button
             onClick={() => handleCopy(cliCommand, 'cli')}
-            className="absolute top-2 right-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
+            className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
           >
             {copied === 'cli' ? 'Copied!' : 'Copy'}
           </button>
         </div>
+        <div>
+          <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
+            <code>{cliCommand}</code>
+          </pre>
+        </div>
       </div>
 
       <div>
-        <p className="text-gray-400 text-xs font-medium mb-1.5">
-          Or paste into{' '}
-          <code className="bg-white/10 px-1 py-0.5 rounded text-xs">.mcp.json</code>
-        </p>
-        <div className="relative">
-          <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
-            <code>{configJson}</code>
-          </pre>
+        <div className="flex items-center justify-between mb-1.5">
+          <p className="text-gray-400 text-xs font-medium">
+            Or paste into{' '}
+            <code className="bg-white/10 px-1 py-0.5 rounded text-xs">.mcp.json</code>
+          </p>
           <button
             onClick={() => handleCopy(configJson, 'config')}
-            className="absolute top-2 right-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
+            className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
           >
             {copied === 'config' ? 'Copied!' : 'Copy'}
           </button>
+        </div>
+        <div>
+          <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
+            <code>{configJson}</code>
+          </pre>
         </div>
       </div>
 
