@@ -16,7 +16,7 @@ Audit and fix cross-repo URL references across the buildd ecosystem. All repos l
 - **User-facing links** (buttons, nav, marketing copy, "learn more", "get started") → `buildd.dev/memory`
 - **API/config URLs** (MCP config `MEMORY_API_URL`, curl examples, fetch calls, env vars) → `memory.buildd.dev`
 - **Docs links** → `docs.buildd.dev`
-- **Dashboard/app links** → `app.buildd.dev`
+- **Dashboard/app links** → `buildd.dev/app`
 - **GitHub links** → `github.com/buildd-ai/<repo>`
 
 ## Steps
@@ -30,6 +30,7 @@ Audit and fix cross-repo URL references across the buildd ecosystem. All repos l
 2. For each match, classify as **user-facing** or **API URL** and verify it follows the rules above.
 
 3. Also check for stale references:
+   - `app.buildd.dev` — old subdomain, should be `buildd.dev/app`
    - `app.buildd.dev/api/memory/*` — this path doesn't exist, should be `memory.buildd.dev/api/*`
    - `memory.buildd.ai` — old domain, should be `memory.buildd.dev`
 
