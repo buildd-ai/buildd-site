@@ -151,7 +151,7 @@ export default function LandingPage() {
               <span className="text-violet-400 font-semibold">2</span>
             </div>
             <h3 className="font-semibold mb-2">Create tasks</h3>
-            <p className="text-sm text-gray-300">From the dashboard, CLI, API &mdash; or set a cron schedule and let them run automatically.</p>
+            <p className="text-sm text-gray-300">From the dashboard, CLI, API, Slack, Discord &mdash; or set a cron schedule and let them run automatically.</p>
           </div>
           <div className="text-center">
             <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center mx-auto mb-4">
@@ -250,6 +250,33 @@ export default function LandingPage() {
               Full webhook integration and repo-level workspace isolation.
             </p>
           </div>
+
+          <div className="bg-white/5 rounded-xl p-6 border border-white/10 backdrop-blur-sm">
+            <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold mb-2">Task Recipes</h3>
+            <p className="text-gray-300">
+              Define reusable multi-step workflows with dependencies and variables.
+              Run a recipe to create an entire task tree &mdash; no manual setup each time.
+            </p>
+          </div>
+
+          <div className="bg-white/5 rounded-xl p-6 border border-white/10 backdrop-blur-sm">
+            <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold mb-2">Slack &amp; Discord</h3>
+            <p className="text-gray-300">
+              Create tasks with <code className="text-white">/buildd</code> from Slack or Discord.
+              Approve plans with buttons, get notifications when tasks complete.{" "}
+              <a href="/integrations" className="text-green-400 hover:text-green-300 underline">See integrations</a>
+            </p>
+          </div>
         </div>
       </div>
 
@@ -280,6 +307,12 @@ export default function LandingPage() {
                 className="hover:text-white transition-colors"
               >
                 Memory
+              </a>
+              <a
+                href="/integrations"
+                className="hover:text-white transition-colors"
+              >
+                Integrations
               </a>
               <a
                 href="https://docs.buildd.dev"
