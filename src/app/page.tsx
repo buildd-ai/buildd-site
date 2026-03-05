@@ -60,7 +60,7 @@ export default function LandingPage() {
           {/* CTAs */}
           <div className="flex flex-wrap justify-center gap-4 pt-2">
             <a
-              href="https://app.buildd.dev"
+              href="https://buildd.dev/app"
               className="inline-flex items-center gap-2 px-6 py-3 bg-fuchsia-500 hover:bg-fuchsia-400 text-white font-semibold rounded-lg transition-colors"
             >
               Get Started
@@ -286,7 +286,7 @@ export default function LandingPage() {
         <p className="text-gray-300 mb-6">All features unlocked. Unlimited workspaces, workers, and tasks. No credit card required.</p>
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="https://app.buildd.dev"
+            href="https://buildd.dev/app"
             className="inline-flex items-center gap-2 px-6 py-3 bg-fuchsia-500 hover:bg-fuchsia-400 text-white font-semibold rounded-lg transition-colors"
           >
             Get Started Free
@@ -337,7 +337,7 @@ export default function LandingPage() {
                 Contact
               </a>
               <a
-                href="https://app.buildd.dev"
+                href="https://buildd.dev/app"
                 className="hover:text-white transition-colors"
               >
                 Sign In

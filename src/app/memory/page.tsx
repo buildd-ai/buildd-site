@@ -132,7 +132,7 @@ export default function MemoryPage() {
           >
             Docs
           </a>
-          <a href="https://app.buildd.dev" className="hover:text-white transition-colors">
+          <a href="https://buildd.dev/app" className="hover:text-white transition-colors">
             Sign In
           </a>
         </div>
@@ -584,7 +584,7 @@ export default function MemoryPage() {
               >
                 Contact
               </a>
-              <a href="https://app.buildd.dev" className="hover:text-white transition-colors">
+              <a href="https://buildd.dev/app" className="hover:text-white transition-colors">
                 Sign In
               </a>
             </div>
