@@ -350,6 +350,18 @@ export default function LandingPage() {
                 Contact
               </a>
               <a
+                href="/privacy"
+                className="hover:text-white transition-colors"
+              >
+                Privacy
+              </a>
+              <a
+                href="/terms"
+                className="hover:text-white transition-colors"
+              >
+                Terms
+              </a>
+              <a
                 href="https://buildd.dev/app"
                 className="hover:text-white transition-colors"
               >
