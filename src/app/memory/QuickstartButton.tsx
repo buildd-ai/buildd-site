@@ -70,7 +70,7 @@ export function QuickstartButton() {
     return (
       <button
         onClick={handleGenerate}
-        className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-black font-semibold rounded-lg transition-colors text-sm"
+        className="btn-copper mt-4 inline-flex items-center gap-2 px-5 py-2.5 text-white font-medium rounded-md transition-colors text-sm"
       >
         {joinTeam ? 'Join Team & Get API Key' : 'Generate API Key'}
         <svg
@@ -93,7 +93,7 @@ export function QuickstartButton() {
 
   if (state.status === 'loading') {
     return (
-      <div className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500/50 text-black font-semibold rounded-lg text-sm cursor-wait">
+      <div className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 text-sm cursor-wait" style={{ backgroundColor: 'rgba(200, 149, 106, 0.5)', color: '#ede8e2', borderRadius: '6px' }}>
         <svg
           className="w-4 h-4 animate-spin"
           fill="none"
@@ -122,10 +122,10 @@ export function QuickstartButton() {
   if (state.status === 'error') {
     return (
       <div className="mt-4 space-y-2">
-        <p className="text-red-400 text-sm">{state.message}</p>
+        <p className="text-sm" style={{ color: '#d4736a' }}>{state.message}</p>
         <button
           onClick={handleGenerate}
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-black font-semibold rounded-lg transition-colors text-sm"
+          className="btn-copper inline-flex items-center gap-2 px-5 py-2.5 text-white font-medium rounded-md transition-colors text-sm"
         >
           Try Again
         </button>
@@ -151,27 +151,28 @@ export function QuickstartButton() {
 
   return (
     <div className="mt-4 space-y-3">
-      <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
-        <p className="text-green-400 text-sm font-medium mb-1">
+      <div className="rounded-lg p-3" style={{ backgroundColor: 'rgba(94, 196, 149, 0.1)', border: '1px solid rgba(94, 196, 149, 0.3)' }}>
+        <p className="text-sm font-medium mb-1" style={{ color: '#5ec495' }}>
           API key generated! Save this key — it won&apos;t be shown again.
         </p>
       </div>
 
       <div>
         <div className="flex items-center justify-between mb-1.5">
-          <p className="text-gray-400 text-xs font-medium">
+          <p className="text-xs font-medium" style={{ color: '#a89f96' }}>
             Paste into{' '}
-            <code className="bg-white/10 px-1 py-0.5 rounded text-xs">.mcp.json</code>
+            <code className="px-1 py-0.5 rounded text-xs" style={{ backgroundColor: 'rgba(255, 245, 230, 0.08)' }}>.mcp.json</code>
           </p>
           <button
             onClick={() => handleCopy(httpConfigJson, 'http')}
-            className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
+            className="px-3 py-1 rounded text-xs transition-colors"
+            style={{ backgroundColor: 'rgba(255, 245, 230, 0.08)', border: '1px solid rgba(255, 245, 230, 0.12)', color: '#a89f96' }}
           >
             {copied === 'http' ? 'Copied!' : 'Copy'}
           </button>
         </div>
         <div>
-          <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
+          <pre className="text-sm font-mono leading-relaxed rounded-lg p-4 overflow-x-auto" style={{ backgroundColor: '#211f1c', border: '1px solid rgba(255, 245, 230, 0.07)', color: '#a89f96' }}>
             <code>{httpConfigJson}</code>
           </pre>
         </div>
@@ -180,7 +181,8 @@ export function QuickstartButton() {
       <div>
         <button
           onClick={() => setShowAlt(!showAlt)}
-          className="text-gray-500 hover:text-gray-400 text-xs transition-colors flex items-center gap-1"
+          className="text-xs transition-colors flex items-center gap-1"
+          style={{ color: '#5e5850' }}
         >
           <svg
             className={`w-3 h-3 transition-transform ${showAlt ? 'rotate-90' : ''}`}
@@ -198,16 +200,17 @@ export function QuickstartButton() {
           <div className="mt-2 space-y-3">
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <p className="text-gray-400 text-xs font-medium">Claude Code (one-liner)</p>
+                <p className="text-xs font-medium" style={{ color: '#a89f96' }}>Claude Code (one-liner)</p>
                 <button
                   onClick={() => handleCopy(cliCommand, 'cli')}
-                  className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
+                  className="px-3 py-1 rounded text-xs transition-colors"
+                  style={{ backgroundColor: 'rgba(255, 245, 230, 0.08)', border: '1px solid rgba(255, 245, 230, 0.12)', color: '#a89f96' }}
                 >
                   {copied === 'cli' ? 'Copied!' : 'Copy'}
                 </button>
               </div>
               <div>
-                <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
+                <pre className="text-sm font-mono leading-relaxed rounded-lg p-4 overflow-x-auto" style={{ backgroundColor: '#211f1c', border: '1px solid rgba(255, 245, 230, 0.07)', color: '#a89f96' }}>
                   <code>{cliCommand}</code>
                 </pre>
               </div>
@@ -215,19 +218,20 @@ export function QuickstartButton() {
 
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <p className="text-gray-400 text-xs font-medium">
-                  <code className="bg-white/10 px-1 py-0.5 rounded text-xs">.mcp.json</code>
+                <p className="text-xs font-medium" style={{ color: '#a89f96' }}>
+                  <code className="px-1 py-0.5 rounded text-xs" style={{ backgroundColor: 'rgba(255, 245, 230, 0.08)' }}>.mcp.json</code>
                   {' '}(stdio)
                 </p>
                 <button
                   onClick={() => handleCopy(configJson, 'config')}
-                  className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
+                  className="px-3 py-1 rounded text-xs transition-colors"
+                  style={{ backgroundColor: 'rgba(255, 245, 230, 0.08)', border: '1px solid rgba(255, 245, 230, 0.12)', color: '#a89f96' }}
                 >
                   {copied === 'config' ? 'Copied!' : 'Copy'}
                 </button>
               </div>
               <div>
-                <pre className="text-sm text-gray-300 font-mono leading-relaxed bg-[#1a1c24] rounded-lg p-4 border border-white/10 overflow-x-auto">
+                <pre className="text-sm font-mono leading-relaxed rounded-lg p-4 overflow-x-auto" style={{ backgroundColor: '#211f1c', border: '1px solid rgba(255, 245, 230, 0.07)', color: '#a89f96' }}>
                   <code>{configJson}</code>
                 </pre>
               </div>
@@ -237,20 +241,21 @@ export function QuickstartButton() {
       </div>
 
       {inviteUrl && (
-        <div className="bg-white/5 border border-white/10 rounded-lg p-3">
-          <p className="text-gray-300 text-sm font-medium mb-1">
+        <div className="rounded-lg p-3" style={{ backgroundColor: 'rgba(255, 245, 230, 0.04)', border: '1px solid rgba(255, 245, 230, 0.07)' }}>
+          <p className="text-sm font-medium mb-1" style={{ color: '#ede8e2' }}>
             Share with your team
           </p>
-          <p className="text-gray-500 text-xs mb-2">
+          <p className="text-xs mb-2" style={{ color: '#5e5850' }}>
             Teammates who open this link get their own key with shared memory.
           </p>
           <div className="flex items-center gap-2">
-            <code className="flex-1 text-xs text-amber-400/80 bg-[#1a1c24] rounded px-3 py-2 border border-white/10 truncate">
+            <code className="flex-1 text-xs rounded px-3 py-2 truncate" style={{ color: '#c8956a', backgroundColor: '#211f1c', border: '1px solid rgba(255, 245, 230, 0.07)' }}>
               {inviteUrl}
             </code>
             <button
               onClick={() => handleCopy(inviteUrl, 'invite')}
-              className="shrink-0 px-3 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded text-xs text-gray-300 transition-colors"
+              className="shrink-0 px-3 py-2 rounded text-xs transition-colors"
+              style={{ backgroundColor: 'rgba(255, 245, 230, 0.08)', border: '1px solid rgba(255, 245, 230, 0.12)', color: '#a89f96' }}
             >
               {copied === 'invite' ? 'Copied!' : 'Copy'}
             </button>

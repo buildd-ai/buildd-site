@@ -9,9 +9,7 @@ export default function LandingPage() {
       <nav className="sticky top-0 z-50 backdrop-blur-md" style={{ backgroundColor: 'rgba(26, 24, 22, 0.92)' }}>
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2.5">
-            <span className="block w-7 h-7 rounded-[6px] overflow-hidden bg-[#1a1816]">
-              <img src="/logo.png" alt="" width={28} height={28} className="block w-full h-full" />
-            </span>
+            <img src="/logo.png" alt="" width={28} height={28} className="block w-7 h-7 rounded-[6px]" />
             <span className="text-white font-bold text-xl" style={{ fontFamily: 'var(--font-outfit)' }}>buildd</span>
           </a>
           <div className="flex items-center gap-8">
