@@ -1,22 +1,29 @@
 import type { Metadata } from 'next';
-import { DM_Sans, JetBrains_Mono } from 'next/font/google';
+import { Outfit, IBM_Plex_Mono, Fraunces } from 'next/font/google';
 import './globals.css';
 
-const dmSans = DM_Sans({
+const outfit = Outfit({
   subsets: ['latin'],
-  variable: '--font-dm-sans',
+  variable: '--font-outfit',
   display: 'swap',
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ['400', '500'],
   subsets: ['latin'],
-  variable: '--font-jetbrains',
+  variable: '--font-ibm-plex-mono',
+  display: 'swap',
+});
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'buildd - Task Queue + Shared Memory for AI Agents',
-  description: 'Coordinate your Claude agents from one dashboard. Tasks go in, PRs come out. Knowledge compounds automatically.',
+  title: 'buildd - Dispatch missions, not tasks',
+  description: 'Set objectives. Agents break them into tasks, connect to your tools via MCP, and ship outcomes while you sleep.',
 };
 
 export default function RootLayout({
@@ -25,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${ibmPlexMono.variable} ${fraunces.variable}`}>
       <body>{children}</body>
     </html>
   );
