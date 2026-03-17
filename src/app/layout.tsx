@@ -24,6 +24,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: 'buildd - Dispatch missions, not tasks',
   description: 'Set objectives. Agents break them into tasks, connect to your tools via MCP, and ship outcomes while you sleep.',
+  themeColor: '#1a1816',
 };
 
 export default function RootLayout({
